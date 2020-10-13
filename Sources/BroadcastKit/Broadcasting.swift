@@ -63,7 +63,7 @@ public class Broadcasting: ObservableObject {
     /**
     On the broadcasting queue deliver announcements collected per frame to resistered observers.
      */
-    func broadcast() {
+    public func broadcast() {
         Broadcasting.queue.async {
             self.announcements.forEach { announcement in
                 // filter out the nil observers before filtering the listerners for this announcement event.
