@@ -15,7 +15,6 @@ import Combine
 public struct Broadcast: Broadcastable {
     public var rawValue: String
     public init(rawValue: String) { self.rawValue = rawValue }
-    
 }
 
 
