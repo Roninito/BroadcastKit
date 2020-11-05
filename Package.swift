@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.3.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "BroadcastKit",
     platforms: [
-        .macOS("10.15"), .iOS("13.0"),
+        .macOS("11.0"), .iOS("14.0"),
     ],
 
     products: [
