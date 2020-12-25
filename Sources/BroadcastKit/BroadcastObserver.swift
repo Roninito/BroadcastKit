@@ -48,7 +48,9 @@ public extension BroadcastObserver {
         Broadcasting.queue.async {
             Broadcasting.station.observers.append(self)
         }
-//        print("Observer: \(self) \n\t registered to observe: \(observing)")
+        if Broadcasting.station.logsObservations == true {
+            print("Observer: \(self) \n\t registered to observe: \(observing)")
+        }
     }
     
     
@@ -61,7 +63,9 @@ public extension BroadcastObserver {
                 obs -> Bool in
                 return obs === self
             }
-//            print("Observer: \(self) \n\t Unregistered from observing: \(self.observing)")
+            if Broadcasting.station.logsObservations == true {
+                print("Observer: \(self) \n\t Unregistered from observing: \(self.observing)")
+            }
         }
     }
 }

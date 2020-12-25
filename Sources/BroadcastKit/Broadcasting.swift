@@ -43,16 +43,20 @@ public class Broadcasting: ObservableObject {
     */
     @Published public var perPostBroadcasting = true
     
+    @Published public var logsAnnouncements = false
+    @Published public var logsObservations = false 
     
     public func post(event: Broadcast, from announcer: BroadcastAnnouncer, with context: Any?) {
         Broadcasting.queue.async {
-            print("""
-                
-                Announcing: \(event.rawValue)
-                PostedBy: \(type(of: announcer) )
-                Queue: \(Broadcasting.queue.label)
-                Payload: \(String(describing: context))
-                """)
+            if self.logsAnnouncements == true {
+                print("""
+                    
+                    Announcing: \(event.rawValue)
+                    PostedBy: \(type(of: announcer) )
+                    Queue: \(Broadcasting.queue.label)
+                    Payload: \(String(describing: context))
+                    """)
+            }
             self.announcements.append((EventAnnouncement(announcer: announcer, event: event, context: context)))
             if self.perPostBroadcasting == true { self.broadcast() }
         }
